@@ -1,0 +1,39 @@
+The challenge here is to read n lines of input until you reach EOF, then number and print all n lines of content.
+
+ Language: Java
+ 
+ Sol:
+ import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        int line = 0;
+    Scanner x = new Scanner(System.in);
+    while(x.hasNextLine()){
+        line++;
+        System.out.println(line+" "+x.nextLine());
+        
+    }
+    }
+}
+
+
+RESULT
+Test Case 1:
+Input: Hello World!!
+Read me until end-of-file
+Output: Hello World!!
+Read me until end-of-file
+
+Test Case 2:
+Input:Hello World!!
+I am Prachi
+Read me until end-of-file
+Output:Hello World!!
+I am Prachi
+Read me until end-of-file
