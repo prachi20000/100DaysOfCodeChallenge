@@ -6,3 +6,40 @@ Capitalize the first letter in A and B and print them on a single line, separate
 
 LANGUAGE: JAVA
 
+SOL:
+
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        
+        Scanner sc=new Scanner(System.in);
+        String A=sc.next();
+        String B=sc.next();
+        System.out.printf("%d \n", A.length() + B.length());
+        System.out.println(A.compareTo(B) > 0 ? "Yes" : "No");
+        System.out.printf("%s %s \n", capitalize(A), capitalize(B));
+        
+    }
+    
+     public static String capitalize(String string){
+        return string.substring(0, 1).toUpperCase() + string.substring(1);
+    }
+}
+
+
+TEST CASE 1:
+
+INPUT: 
+hello
+java
+
+OUTPUT:
+9
+No
+Hello Java
+
+
+
