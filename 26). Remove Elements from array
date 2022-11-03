@@ -1,0 +1,34 @@
+PROBLEM: Given an integer array nums and an integer val, remove all occurrences of val in nums in-place. The relative order of the elements may be changed.
+
+LANGUAGE: JAVA
+
+SOL:
+class Solution {
+public int removeElement(int[] nums, int val) {
+int[] arr= new int[nums.length];
+int k=0;
+for(int i=0;i<nums.length;i++){
+if(nums[i]!=val){
+arr[k]=nums[i];
+k++;
+}
+}
+for(int i=0;i<nums.length;i++){
+nums[i]=arr[i];
+}
+return k;
+}
+}
+
+TEST CASE 1
+INPUT: nums = [3,2,2,3], val = 3
+OUTPUT: 2, nums = [2,2,_,_]
+EXPLANATION: Your function should return k = 2, with the first two elements of nums being 2.
+It does not matter what you leave beyond the returned k (hence they are underscores).
+
+TEST CASE 2
+INPUT:nums = [0,1,2,2,3,0,4,2], val = 2
+OUTPUT: 5, nums = [0,1,4,0,3,_,_,_]
+EXPLANATION: Your function should return k = 5, with the first five elements of nums containing 0, 0, 1, 3, and 4.
+Note that the five elements can be returned in any order.
+It does not matter what you leave beyond the returned k (hence they are underscores).
