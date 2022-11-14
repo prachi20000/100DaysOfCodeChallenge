@@ -1,0 +1,27 @@
+PROBLEM: Given a string s consisting of words and spaces, return the length of the last word in the string.
+LANGUAGE: JAVA
+SOL:
+class Solution {
+    public int lengthOfLastWord(String s) {
+        {
+        int i = 0;
+        int flag = 1;
+        s=s.trim();
+
+        for (i= s.lastIndexOf(" ")+1; i<s.length()-1;i++) {
+            flag++;
+        }
+        return flag;
+    }
+    }
+}
+
+TEST CASE 1
+Input: s = "Hello World"
+Output: 5
+Explanation: The last word is "World" with length 5.
+
+TEST CASE 2
+Input: s = "   fly me   to   the moon  "
+Output: 4
+Explanation: The last word is "moon" with length 4.
