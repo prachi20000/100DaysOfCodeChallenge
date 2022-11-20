@@ -1,0 +1,39 @@
+PROBLEM: Given a string s, return true if it is a palindrome, or false otherwise.
+
+LANGUAGE: JAVA
+
+SOL:
+class Solution {
+    public boolean isPalindrome(String s) {
+        StringBuilder sb = new StringBuilder(s.toLowerCase()); // for later comparisons
+  int idx = 0;  
+  // remove non-letter character
+  while (idx < sb.length()) {
+    char ch = sb.charAt(idx);
+    if (Character.isLetterOrDigit(ch)) { // letter or digit
+      idx += 1;
+    } else { // not letter
+      sb.deleteCharAt(idx);
+    }
+  }
+  int n = sb.length(); // update length
+  // check
+  for (int i = 0; i < n / 2; ++i) { // right-leaning
+    int j = n - i - 1;
+    if (sb.charAt(i) != sb.charAt(j)) {
+      return false;
+    }
+  }
+  return true;
+ }
+}
+
+TEST CASE 1
+Input: s = "A man, a plan, a canal: Panama"
+Output: true
+Explanation: "amanaplanacanalpanama" is a palindrome.
+
+TEST CASE 2
+Input: s = "race a car"
+Output: false
+Explanation: "raceacar" is not a palindrome.
