@@ -1,0 +1,74 @@
+PROBLEM:Write a multithreading program in JAVA to perform the following task
+   -Display all numbers between 1 to 100 which are divisible by 7 and 11
+   -Display all numbers between 1 to 100 which are divisible by either 5 or 13
+   
+LANGUAGE: JAVA
+
+SOL:
+package lab_test;
+import java.util.*;
+
+class number extends Thread{
+	
+	public void run() {
+	for(int i=0;i<=100;i++) {
+		if(i%7==0 && i%11==0)
+		{
+			System.out.println("Number divisible by 7 and 11 both are " +i);
+		}
+	}
+}
+}
+
+class number1 extends Thread{
+	public void run() {
+		for(int j=0;j<100;j++) {
+			if(j%5==0 || j%13==0)
+			{
+				System.out.println("Number divisible by 5 or 13 are " +j);
+			}
+		}
+	}
+}
+
+public class Q2 {
+	public static void main(String args[])
+	{
+		number n1=new number();
+		number1 n2=new number1();
+		n1.start();
+		n2.start();
+		
+	}
+
+}
+
+OUTPUT:
+Number divisible by 7 and 11 both are 0
+Number divisible by 7 and 11 both are 77
+Number divisible by 5 or 13 are 0
+Number divisible by 5 or 13 are 5
+Number divisible by 5 or 13 are 10
+Number divisible by 5 or 13 are 13
+Number divisible by 5 or 13 are 15
+Number divisible by 5 or 13 are 20
+Number divisible by 5 or 13 are 25
+Number divisible by 5 or 13 are 26
+Number divisible by 5 or 13 are 30
+Number divisible by 5 or 13 are 35
+Number divisible by 5 or 13 are 39
+Number divisible by 5 or 13 are 40
+Number divisible by 5 or 13 are 45
+Number divisible by 5 or 13 are 50
+Number divisible by 5 or 13 are 52
+Number divisible by 5 or 13 are 55
+Number divisible by 5 or 13 are 60
+Number divisible by 5 or 13 are 65
+Number divisible by 5 or 13 are 70
+Number divisible by 5 or 13 are 75
+Number divisible by 5 or 13 are 78
+Number divisible by 5 or 13 are 80
+Number divisible by 5 or 13 are 85
+Number divisible by 5 or 13 are 90
+Number divisible by 5 or 13 are 91
+Number divisible by 5 or 13 are 95
