@@ -1,0 +1,81 @@
+PROBLEM: Write a program to make Basic Calculator 
+LANGUAGE: JAVA
+
+SOL:
+package program;
+import java.lang.Math;
+
+public class calc {
+	
+	int result;
+	public void add(int num1, int num2) {
+		result=num1+num2;
+		System.out.println("Sum:" +result);
+	}
+	
+	public void sub(int num1, int num2) {
+		result=num1-num2;
+		System.out.println("Sub:" +result);
+	}
+	
+	public void mul(int num1,int num2) {
+		result=num1*num2;
+		System.out.println("Multiplication:" +result);
+	}
+	public void div(int num1,int num2) {
+		result=num1/num2;
+		System.out.println("Division:" +result);
+	}
+}
+class advance extends calc
+{
+	public void sqrt(int num1) {
+	result=num1*num1;
+	System.out.println("Square Root:" +result);
+}
+	
+	public void cube(int num1) {
+		result=num1*num1*num1;
+		System.out.println("Cube:" +result);
+	}
+	
+	public void pow(int num1,int num2) {
+		result=(int) Math.pow(2, 3);
+		System.out.println("Power:" +result);
+	}
+	
+	public void factorial(int num1) {
+		int i,fact=1;
+		for(i=1;i<=num1;i++) {
+			fact=fact*i;
+		}
+		System.out.println("Factorial:" +fact);
+	}
+}
+
+class calcdemo{
+	public static void main(String[] args) {
+			calc a1=new calc();
+			a1.add(20, 10);
+			a1.sub(60,30);
+			a1.mul(15, 2);
+			a1.div(90, 3);
+			advance a2=new advance();
+			a2.sqrt(4);
+			a2.cube(4);
+			a2.pow(2, 3);
+			a2.factorial(4);
+			
+	}
+
+}
+
+OUTPUT
+Sum:30
+Sub:30
+Multiplication:30
+Division:30
+Square Root:16
+Cube:64
+Power:8
+Factorial:24
