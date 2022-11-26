@@ -1,0 +1,93 @@
+PROBLEM:Given an unsorted array A of size N that contains only non-negative integers, find a continuous sub-array which adds to a given number S and return the left and right index of that subarray.
+
+In case of multiple subarrays, return the subarray indexes which comes first on moving from left to right.
+
+LANGUAGE: JAVA
+
+SOL:
+class Solution
+{
+    //Function to find a continuous sub-array which adds up to a given number.
+    static ArrayList<Integer> subarraySum(int[] arr, int n, int s) 
+    {
+         
+
+        ArrayList<Integer>ans = new ArrayList<Integer>();
+
+        int i=0,j=0,sum=0;
+
+        boolean flag = false;
+
+        while(j<n)
+
+        {
+
+            sum = sum + arr[j];
+
+            
+
+            if(sum >= s)
+
+            {
+
+                while(sum>s && i<j)
+
+                {
+
+                     sum = sum-arr[i];
+
+                     ++i;
+
+                }
+
+            }
+
+            
+
+            if(sum == s)
+
+             {
+
+                 ans.add(i+1);
+
+                 ans.add(j+1);
+
+                 flag = true;
+
+                 break;
+
+             }
+
+             j++;   
+
+        }     
+
+        if(flag == false)
+
+        ans.add(-1);
+
+        
+
+        return ans;
+
+     
+    }
+}
+
+TEST CASE 1
+Input:
+N = 5, S = 12
+A[] = {1,2,3,7,5}
+Output: 2 4
+Explanation: The sum of elements 
+from 2nd position to 4th position 
+is 12.
+
+TEST CASE 2
+Input:
+N = 10, S = 15
+A[] = {1,2,3,4,5,6,7,8,9,10}
+Output: 1 5
+Explanation: The sum of elements 
+from 1st position to 5th position
+is 15.
