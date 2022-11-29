@@ -1,0 +1,32 @@
+PROBLEM:Given a English alphabet c, Write a program to check whether a character is a vowel or not.
+LANGUAGE: JAVA
+
+SOL:
+class Solution{
+    String isVowel(char c){
+        // code here
+         if(c=='a'|| c=='e'|| c=='i'|| c=='o'||c=='u'||c=='A'||c=='E'||c=='I'||c=='O'||c=='U')
+        {
+            return "YES";
+        }
+        else{
+            return "NO";
+        }
+    }
+}
+
+TEST CASE 1
+Input:
+c = 'a'
+Output:
+YES
+Explanation:
+'a' is a vowel.
+
+TEST CASE 2
+Input:
+c = 'Z'
+Output:
+NO
+Explanation:
+'Z' is not a vowel.
