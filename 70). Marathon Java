@@ -1,0 +1,41 @@
+LANGUAGE: JAVA
+SOL:
+package marathon;
+
+public class marathon {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		String[] name= {"Amit","Vikas","Anil","Kamlesh","Suhani","Kavita","Jalaj"};
+	    int[] time={341,273,278,329,445,402,388};
+	    int max=time[0];
+	    int index = 0;
+	    int max2=time[0];
+	    int index2=0;
+	    for(int i=0;i<7;i++)
+	    {  if(time[i]<max)
+	        {
+	            max=time[i];
+	            index=i;
+	        }        }
+	    for(int i=0;i<7;i++)
+	    {    if(time[i]<max2 && i!=index)
+	        {
+	            max2=time[i];
+	            index2=i;      }        }
+	    System.out.println("The Fastest Runner");
+	    System.out.println("Name:"+name[index]);
+	    System.out.println("Time(minutes): "+max);
+	    System.out.println();
+	    System.out.println("The Second Fastest Runner");
+	    System.out.println("Name:"+name[index2]);
+	    System.out.println("Time(minutes): "+max2);	}  }
+
+OUTPUT
+The Fastest Runner
+Name: Vikas
+Time(minutes): 273
+
+The Second Fastest Runner
+Name:Anil
+Time(minutes): 278
