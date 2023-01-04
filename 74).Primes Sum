@@ -1,0 +1,39 @@
+PROBLEM:Given a number N. Find if it can be expressed as sum of two prime numbers.
+
+LANGUAGE: JAVA
+
+SOL:
+class Solution {
+    static String isSumOfTwo(int N){
+        for(int i=1;i<N;i++){
+            if(isPrime(i)&&isPrime(N-i)){
+                return "Yes";
+            }
+        }
+        return "No";
+    }
+    static boolean isPrime(int n){
+         for(int i=2;i*i<=n;i++){
+            if(n%i==0){
+                return false;
+            }
+        }
+        return true;
+    }
+}
+
+TEST CASE 1
+INPUT:
+N = 34
+OUTPUT:
+"Yes" 
+Explanation: 34 can be expressed as 
+sum of two prime numbers.
+
+TEST CASE 2
+INPUT:
+N = 23
+OUTPUT:
+"No"
+Explanation: 23 cannnot be expressed as
+sum of two prime numbers. 
