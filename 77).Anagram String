@@ -1,0 +1,56 @@
+PROBLEM: Check whether the given string is Anagram or not
+LANGUAGE: JAVA
+
+SOL:package program;
+
+public class Anagram {
+	public static void main(String args[]) {
+		String s1="ate",s2="eat",s3="";
+		char temp;
+		char ch[]=s1.toCharArray(),ch1[]=s2.toCharArray();
+		if(s1.length()==s2.length())
+		{
+			for(int i=0;i<s1.length();i++) {
+				for(int j=1;j<s1.length()-1;j++) {
+					if(s1.charAt(j-1)>s2.charAt(j)) {
+						temp=ch[j-1];
+						ch[j-1]=ch[j];
+						ch[j]=temp;
+					}
+					if(ch1[j-1]==ch1[j]) {
+						temp=ch[j-1];
+						ch[j-1]=ch[j];
+						ch[j]=temp;
+					}
+				}
+			}
+			int count=0,i;
+			for(i=0;i<ch.length;i++) {
+				if(ch[i]!=ch[i])
+					break;
+			}
+			if(i==ch.length) {
+				System.out.println("Anagram");
+			}
+			else {
+				System.out.println("Not an Anagram");
+			}
+		}
+		else {
+			System.out.println("Not an Anagram");
+		}
+	}
+
+}
+
+TEST CASE 1
+INPUT:
+s1=triangle,s2=integral
+OUTPUT:
+Anagram
+
+TEST CASE 1
+INPUT:
+s1=ates, s2=eat
+OUTPUT:
+Not an Anagram
