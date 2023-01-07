@@ -49,7 +49,7 @@ s1=triangle,s2=integral
 OUTPUT:
 Anagram
 
-TEST CASE 1
+TEST CASE 2
 INPUT:
 s1=ates, s2=eat
 OUTPUT:
