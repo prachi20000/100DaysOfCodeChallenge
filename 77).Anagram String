@@ -1,7 +1,8 @@
 PROBLEM: Check whether the given string is Anagram or not
 LANGUAGE: JAVA
 
-SOL:package program;
+SOL:
+package program;
 
 public class Anagram {
 	public static void main(String args[]) {
