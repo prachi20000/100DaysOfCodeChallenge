@@ -1,0 +1,45 @@
+PROBLEM: Given a list intervals of n intervals, the ith element [s, e, p] denotes the starting point s, ending point e, and the profit p earned by 
+choosing the ith interval. Find the maximum profit one can achieve by choosing a subset of non-overlapping intervals.
+Two intervals [s1, e1, p1] and [s2, e2, p2] are said to be non-overlapping if [e1 <= s2] and [s1 < s2].
+
+LANGUAGE: JAVA
+
+SOL:
+
+class Solution {
+    public static int maximum_profit(int n, int[][] jobs) {
+        
+        Arrays.sort(jobs, (a, b) -> a[1] - b[1]);
+        
+        int[] dp = new int[n + 1];
+        
+        for (int i = 0; i < n; i++) 
+        {
+            dp[i + 1] = Math.max(dp[i], dp[i + 1]);
+            
+            int low = 0, high = i;
+            while(low < high-1) {
+                int mid = low + (high - low)/ 2;
+                if (jobs[mid][1] <= jobs[i][0]) {
+                    low = mid;
+                } else {
+                    high = mid;
+                }
+            }
+            dp[i + 1] = Math.max(dp[i + 1], ((jobs[low][1] <= jobs[i][0]) ? dp[low + 1] : 0) + jobs[i][2]);
+        }
+        return dp[n];
+    }
+}
+
+TEST CASE 1
+Input: n = 3
+intervals = { {1, 2, 4}, {1, 5, 7}, {2, 4, 4} } 
+Output: 8 
+Explanation: One can choose intervals [1, 2, 4] and [2, 4, 4] for a profit of 8.
+
+TEST CASE 2
+Input: n = 3 
+intervals = { {1, 4, 4}, {2, 3, 7}, {2, 3, 4} } 
+Output: 7 
+Explanation: One can choose interval [2, 3, 7] for a profit of 7.
