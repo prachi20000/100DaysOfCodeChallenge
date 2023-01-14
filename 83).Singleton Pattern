@@ -1,0 +1,36 @@
+PROBLEM: Complete the Singleton class in your editor which contains the following components:
+
+1) A private Singleton non parameterized constructor.
+2) A public String instance variable named str.
+3) Write a static method named getSingleInstance that returns the single instance of the Singleton class.
+
+LANGUAGE: JAVA
+
+SOL:
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+import java.lang.reflect.*;
+
+
+class Singleton{
+    static Singleton instance = new Singleton();
+    
+    private Singleton() {
+        
+    }
+    
+    public String str;
+    
+    static Singleton getSingleInstance() {
+        return instance;
+    }
+
+}
+
+INPUT:
+hello world
+OUTPUT:
+Hello I am a singleton! Let me say hello world to you
