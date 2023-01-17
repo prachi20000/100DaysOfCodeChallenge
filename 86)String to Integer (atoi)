@@ -1,0 +1,56 @@
+PROBLEM: Implement the myAtoi(string s) function, which converts a string to a 32-bit signed integer
+LANGUAGE: JAVA
+
+SOL:
+
+class Solution {
+    public int myAtoi(String s) {
+        if (s == null) return 0;
+        int n = s.length();
+        if (n == 0) return 0;
+        int i = 0;
+        while (s.charAt(i) == ' ') {
+            // only contains blank space
+            if (++i == n) return 0;
+        }
+        int sign = 1;
+        if (s.charAt(i) == '-') sign = -1;
+        if (s.charAt(i) == '-' || s.charAt(i) == '+') ++i;
+        int res = 0, flag = Integer.MAX_VALUE / 10;
+        for (; i < n; ++i) {
+            // not a number, exit the loop
+            if (s.charAt(i) < '0' || s.charAt(i) > '9') break;
+            // if overflows
+            if (res > flag || (res == flag && s.charAt(i) > '7'))
+                return sign > 0 ? Integer.MAX_VALUE : Integer.MIN_VALUE;
+            res = res * 10 + (s.charAt(i) - '0');
+        }
+        return sign * res;
+    }
+}
+
+TEST CASE 1
+Input: s = "42"
+Output: 42
+Explanation: The underlined characters are what is read in, the caret is the current reader position.
+Step 1: "42" (no characters read because there is no leading whitespace)
+         ^
+Step 2: "42" (no characters read because there is neither a '-' nor '+')
+         ^
+Step 3: "42" ("42" is read in)
+           ^
+The parsed integer is 42.
+Since 42 is in the range [-231, 231 - 1], the final result is 42.
+
+TEST CASE 2
+Input: s = "   -42"
+Output: -42
+Explanation:
+Step 1: "   -42" (leading whitespace is read and ignored)
+            ^
+Step 2: "   -42" ('-' is read, so the result should be negative)
+             ^
+Step 3: "   -42" ("42" is read in)
+               ^
+The parsed integer is -42.
+Since -42 is in the range [-231, 231 - 1], the final result is -42.
