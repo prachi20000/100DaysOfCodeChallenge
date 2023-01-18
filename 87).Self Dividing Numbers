@@ -1,0 +1,32 @@
+PROBLEM: Given two integers left and right, return a list of all the self-dividing numbers in the range [left, right].
+LANGUAGE: JAVA
+
+SOL:
+
+class Solution {
+    public List<Integer> selfDividingNumbers(int left, int right) {
+        List<Integer> results = new ArrayList<Integer>();
+        for (int i = left; i <= right; i++) {
+            int val = i;
+            while (val > 0) {
+                int digit = val % 10;
+                if (digit == 0 || i % digit != 0) {
+                    break;
+                }
+                val /= 10;
+            }
+            if (val == 0) {
+                results.add(i);
+            }
+        }
+        return results;
+    }
+}
+
+TEST CASE 1
+Input: left = 1, right = 22
+Output: [1,2,3,4,5,6,7,8,9,11,12,15,22]
+
+TEST CASE 2
+Input: left = 47, right = 85
+Output: [48,55,66,77]
