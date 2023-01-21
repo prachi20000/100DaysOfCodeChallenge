@@ -1,0 +1,40 @@
+PROBLEM: Write an algorithm to determine if a number n is happy. Return true if n is a happy number, and false if not.
+LANGUAGE:JAVA
+
+SOL:
+
+class Solution {
+
+     public int getNext(int n) {
+        int totalSum = 0;
+        while (n > 0) {
+            int d = n % 10;
+            n = n / 10;
+            totalSum += d * d;
+        }
+        return totalSum;
+    }
+
+    public boolean isHappy(int n) {
+        int slowRunner = n;
+        int fastRunner = getNext(n);
+        while (fastRunner != 1 && slowRunner != fastRunner) {
+            slowRunner = getNext(slowRunner);
+            fastRunner = getNext(getNext(fastRunner));
+        }
+        return fastRunner == 1;
+    }
+}
+
+TEST CASE 1
+Input: n = 19
+Output: true
+Explanation:
+12 + 92 = 82
+82 + 22 = 68
+62 + 82 = 100
+12 + 02 + 02 = 1
+
+TEST CASE 2
+Input: n = 2
+Output: false
